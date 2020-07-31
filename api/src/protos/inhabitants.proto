@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+message Inhabitant {
+  string id = 1;
+  string name = 2;
+}
+
+message GetInhabitantByIdRequest {
+  string id = 1;
+}
+
+message InhabitantResponse {
+  Inhabitant inhabitant = 1;
+  string error = 2;
+  string something = 3;
+}
+
+service InhabitantService {
+  rpc getInhabitantById(GetInhabitantByIdRequest) returns (InhabitantResponse);
+}
